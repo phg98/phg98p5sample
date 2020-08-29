@@ -4,9 +4,13 @@ let degreeStep = 19;
 let radius = 50;
 let radiusStep;
 let colorStep;
-let screensize = [screen.availWidth ,screen.availWidth ]
+let screen
+let screensize
+let isPaused=false
 
 function setup() {
+  screen = Math.min(window.innerWidth, window.innerHeight)
+  screensize = [screen ,screen]
   createCanvas(screensize[0], screensize[1]);
   background(220);
   radius = random(100);
@@ -18,12 +22,13 @@ function setup() {
 }
 
 function draw() {
+  if (isPaused) return;
   degree = degree + degreeStep;
   if (degree > 360) {
     degree -= 360;
   }
   radius = radius + 0.2;
-  if (radius > 200) {
+  if (radius > screen/2) {
     radius = 0;
     setup();
   }
@@ -51,6 +56,7 @@ function keyPressed() {
     step += 1;
   }
   if (key == ' ') {
+    isPaused = !isPaused
     //pause();
   }
 }
