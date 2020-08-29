@@ -4,9 +4,10 @@ let degreeStep = 19;
 let radius = 50;
 let radiusStep;
 let colorStep;
+let screensize = [screen.availWidth ,screen.availWidth ]
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(screensize[0], screensize[1]);
   background(220);
   radius = random(100);
   degreeStep = random(20,90);
@@ -28,8 +29,8 @@ function draw() {
   }
   centerX = cos(radians(degree))*radius;
   centerY = sin(radians(degree))*radius;
-  bigCenterX = 200;
-  bigCenterY = 200;
+  bigCenterX = screensize[0]/2;
+  bigCenterY = screensize[1]/2;
   circle(bigCenterX+centerX,bigCenterY+centerY,30);
   if (int(degree) % colorStep == 0) {
     fill('#000000')
