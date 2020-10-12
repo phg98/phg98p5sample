@@ -17,7 +17,7 @@ function setup() {
   degreeStep = random(20,90);
   radiusStep = random(20);
   colorStep = int(random(2,50));
-  showCurrentParam(radius, degree, radius, colorStep)
+  showCurrentParam(radius, degreeStep, radiusStep, colorStep)
   print('radius: '+radius + ', degreeStep: ' + degreeStep + ', radiusStep: ' + radiusStep);
   print('colorStep: '+colorStep);
 }
@@ -63,7 +63,14 @@ function keyPressed() {
 }
 
 function showCurrentParam(radius, degreeStep, radiusStep, colorStep) {
-  let param = document.createElement('h1')
+  let param = document.getElementsByClassName('currentParam')[0];
+
+  if (param != undefined) {
+    param.remove()
+  } else {
+    param = document.createElement('h1')
+  }
+
   param.style.textAlign = "center";
   param.className = 'currentParam'
   param.textContent = `radius: ${radius}  degreeStep: ${degreeStep}  radiusStep: ${radiusStep}  colorStep: ${colorStep}`
