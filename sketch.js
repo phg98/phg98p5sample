@@ -76,3 +76,8 @@ function showCurrentParam(radius, degreeStep, radiusStep, colorStep) {
   param.textContent = `radius: ${radius}  degreeStep: ${degreeStep}  radiusStep: ${radiusStep}  colorStep: ${colorStep}`
   document.getElementsByTagName('body')[0].insertAdjacentElement('afterbegin', param)
 }
+
+function keychk(e){
+  let key = e.which?e.which:e.keyCode;
+  if(key == 110) setup();
+}
