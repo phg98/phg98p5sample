@@ -73,7 +73,7 @@ function showCurrentParam(radius, degreeStep, radiusStep, colorStep) {
 
   param.style.textAlign = "center";
   param.className = 'currentParam'
-  param.textContent = `radius: ${radius}  degreeStep: ${degreeStep}  radiusStep: ${radiusStep}  colorStep: ${colorStep}`
+  param.textContent = `radius: ${radius.toFixed(2)}  degreeStep: ${degreeStep.toFixed(2)}  radiusStep: ${radiusStep.toFixed(2)}  colorStep: ${colorStep}`
   document.getElementsByTagName('body')[0].insertAdjacentElement('afterbegin', param)
 }
 
